@@ -1,0 +1,11 @@
+1. I would create a public and private key using ssh-keygen. Use -t to specify
+   RSA type encryption. Use -b to specify 4096 bits. Use -C to specify user
+
+2. The public key should be stored on the servers that you plan to connect
+   with. The key is added to ~/.ssh/authorized_keys on the server. This
+   authenticates the connecting system and the decrypts communication.
+
+3. The private key is added to the ssh-agent to be used for ssh communication.
+   If you have more than one key use ssh -i [path to key] to define which to
+   use. It encrypts the communication from your system to the server you are
+   connecting with.
