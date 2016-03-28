@@ -1,0 +1,2 @@
+#!/bin/bash
+basename -a -s .gif $(find -name "*.gif" -type f)
