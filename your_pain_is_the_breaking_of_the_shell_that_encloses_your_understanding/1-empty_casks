@@ -1,1 +1,2 @@
+#!/bin/bash
 basename -a $(find -empty)
