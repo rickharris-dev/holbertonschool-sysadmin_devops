@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -n -e '2~3!p'
