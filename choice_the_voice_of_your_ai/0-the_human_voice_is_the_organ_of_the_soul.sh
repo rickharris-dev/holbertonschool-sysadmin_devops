@@ -23,13 +23,20 @@ esac
 
 # Create the audio file name
 FILE=$(echo ${1} | awk '{print $1}')
-FILE="./$FILE.m4v"
+FILE="$FILE.m4a"
 
 # Creates the audio file
 say ${1} -v $VOICE -o $FILE
 
 # Sets the server path
-PATH="admin@${3}:/var/www"
+HOST="admin@${3}"
+REMOTE_PATH="/var/www/microblog_project/"
 
 # Uploads the file to the specified server
-scp -i ~/Dropbox/first_key $FILE $PATH
+/usr/bin/scp -q ./$FILE $HOST:"/var/www/microblog-project/"
+
+# Echo file name
+echo $FILE
+
+# Echo where to listen to the file
+echo "Listen to the message on http://${3}/$FILE"

@@ -1,2 +1,2 @@
 #!/bin/bash
-awk '{print $1,$9}' ${1}
+awk '{print $1, $9}' ${1}

@@ -1,0 +1,7 @@
+DEPENDENCIES
+  holberton-wrapper
+    path: .
+    metadata: true
+
+GRAPH
+  holberton-wrapper (0.1.0)
