@@ -12,3 +12,6 @@ Displays the content of the /etc/passwd file
 
 ## 3-twofiles
 Displays the content of both /etc/passwd and /etc/hosts
+
+## 4-lastlines
+Displays the last 10 lines of /etc/passwd
