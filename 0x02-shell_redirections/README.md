@@ -20,4 +20,7 @@ Displays the last 10 lines of /etc/passwd
 Displays the first 10 lines of /etc/passwd
 
 ## 6-third_line
-Displays the third line of the file iacta.
+Displays the third line of the file iacta
+
+## 8-cwd_state
+Writes into the file ls_cwd_content the result of the command ls -la
