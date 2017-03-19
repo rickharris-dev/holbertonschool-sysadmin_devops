@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Daemon that outputs 'I am alive!' to tmp file
+function bye {
+	echo "$@"
+	exit
+}
+function usage {
+	bye "Usage: manage_my_process {start|stop|restart}"
+}
+function loop {
+	while :
+	do
+		echo I am alive! >> /tmp/my_process
+		sleep 2
+	done 
+} 
+function start {
+	loop &
+	echo "$!" > /var/run/my_process.pid
+	bye "manage_my_process started"
+}
+function stop {
+	[[ -f /var/run/my_process.pid ]] && \
+		kill "$(cat /var/run/my_process.pid)" && \
+		rm /var/run/my_process.pid
+	bye "manage_my_process stopped"
+}
+function restart {
+	[[ -f /var/run/my_process.pid ]] && kill "$(cat /var/run/my_process.pid)"
+	loop & 
+	echo "$!" > /var/run/my_process.pid
+	bye "manage_my_process restarted"
+}
+[[ $# == 1 ]] || usage
+[[ $1 == 'start' ]] && start
+[[ $1 == 'stop' ]] && stop
+[[ $1 == 'restart' ]] && restart
+usage
