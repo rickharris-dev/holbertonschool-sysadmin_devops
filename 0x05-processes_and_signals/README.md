@@ -23,3 +23,7 @@ Script that kills 4-to_infinity_and_beyond process
 
 ##7. Highlander
 Output similar to task 4, but also outputs message when SIGTERM is received
+
+##8. Beheaded process
+Script that kills the process 7-highlander
+
