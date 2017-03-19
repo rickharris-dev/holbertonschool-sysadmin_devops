@@ -27,3 +27,6 @@ Output similar to task 4, but also outputs message when SIGTERM is received
 ##8. Beheaded process
 Script that kills the process 7-highlander
 
+##9. Process and PID file
+Similar to task 4, but responds to various signals
+
