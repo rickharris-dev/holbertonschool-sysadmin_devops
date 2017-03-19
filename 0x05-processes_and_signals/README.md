@@ -8,3 +8,7 @@ Script that displays a list of currently running processes
 
 ##2. Show your Bash PID
 Script that displays line containing the bash word
+
+##3. Show your Bash PID made easy
+Script that displays the PID, along with the process name, of processes which name contains the word bash
+
