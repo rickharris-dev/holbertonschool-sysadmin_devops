@@ -18,3 +18,6 @@ Script that displays To infinity and beyond indefinitely
 ##5. Kill me now
 Script that kills 4-to_infinity_and_beyond process
 
+##6. Kill me now made easy
+Script that kills 4-to_infinity_and_beyond process
+
