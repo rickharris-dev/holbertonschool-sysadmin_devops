@@ -15,3 +15,6 @@ Script that displays the PID, along with the process name, of processes which na
 ##4. To infinity and beyond
 Script that displays To infinity and beyond indefinitely
 
+##5. Kill me now
+Script that kills 4-to_infinity_and_beyond process
+
