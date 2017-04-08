@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Transfers local file to a user home directory on a remote server.
+#
+# $1 - Path of the local file to be transferred
+# $2 - IP of the server to transfer to
+# $3 - Username to connect to remote server
+# $4 - Path to the identity key used to access the server
+#
+function show_usage() {
+	echo 'Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY'
+	exit 1
+}
+(( $# < 4 )) && show_usage
+scp -o StrictHostKeyChecking=no -i "$4" "$1" "$3@$2":~/
