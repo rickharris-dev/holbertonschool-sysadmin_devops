@@ -6,8 +6,21 @@
 config="\
 server {
 	listen 80;
-	root /usr/share/nginx/html;
-	index index.html;
+	location / {
+		root /usr/share/nginx/html;
+		index index.html;
+	}
+
+	location /redirect_me {
+		return 301 https://www.holbertonschool.com;
+	}
+
+	error_page 404 /youputaspace.html;
+
+	location /youputaspace.html {
+		root /usr/share/nginx/html;
+		internal;
+	}
 }
 "
 
@@ -21,5 +34,6 @@ service nginx stop > /dev/null 2>&1
 rm -rf /etc/nginx/sites-enabled/* /usr/share/nginx/html/* > /dev/null 2>&1
 echo "$config" > /etc/nginx/sites-enabled/holberton
 echo 'Holberton School' > /usr/share/nginx/html/index.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/youputaspace.html
 service nginx start
 bye 0 'nginx installed and configured'

@@ -12,3 +12,6 @@ Domain of the Holberton web server
 ## 3. Redirection
 Configure an nginx server to redirect GET /redirect_me
 
+## 4. Not found page 404 
+Configre a nginx server to add 404 response text
+
