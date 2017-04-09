@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#
+# Install and configure nginx to listen on port 80
+#
+
+config="\
+server {
+	listen 80;
+	location / {
+		root /usr/share/nginx/html;
+		index index.html;
+	}
+
+	location /redirect_me {
+		return 301 https://www.holbertonschool.com;
+	}
+}
+"
+
+function bye() {
+	echo "$2"
+	exit "$1"
+}
+
+apt-get install -y nginx > /dev/null 2>&1
+service nginx stop > /dev/null 2>&1
+rm -rf /etc/nginx/sites-enabled/* /usr/share/nginx/html/* > /dev/null 2>&1
+echo "$config" > /etc/nginx/sites-enabled/holberton
+echo 'Holberton School' > /usr/share/nginx/html/index.html
+service nginx start
+bye 0 'nginx installed and configured'

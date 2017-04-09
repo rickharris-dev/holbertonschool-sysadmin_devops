@@ -9,3 +9,6 @@ Install and config nginx to list on port 80 and return 'Holberton School' on cur
 ## 2. Setup a domain name
 Domain of the Holberton web server
 
+## 3. Redirection
+Configure an nginx server to redirect GET /redirect_me
+
