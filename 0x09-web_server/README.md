@@ -15,3 +15,5 @@ Configure an nginx server to redirect GET /redirect_me
 ## 4. Not found page 404 
 Configre a nginx server to add 404 response text
 
+## 6. Deploy fast, deploy well
+fabfile to deploy local directory to remote server
