@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Configures nginx to run as the nginx user and kills the apache process
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
+sed -i 's/\(\s*listen[][ \t:]*\)80 /\18080 /' /etc/nginx/sites-enabled/default
+pkill apache2
+sudo -u nginx service nginx start
