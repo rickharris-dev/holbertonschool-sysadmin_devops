@@ -1,26 +1,26 @@
+"""
+Fab file deploys local directory to remote server
+"""
 from fabric.api import *
-from fabric.operations import run, put
-
-''' 
-Packs the present working directory into a tar, deploys to remote
-server, and then cleans up the local tar file.
-'''
 
 env.user = 'ubuntu'
-'''env.shell = '/bin/bash -c''''
+env.disable_known_hosts = True
+env.shell = '/bin/bash -c'
 
-'''
+
 def pack():
+    """ Packs the current working directory into a tar file. """
     local("tar --exclude='*.tar.gz' -cvzf holbertonwebapp.tar.gz .")
-'''
+
 
 def deploy():
-    deploy_dir = '/tmp/holbertonwebapp'
+    """ Deploy to remote host specified by -H on cmd line. """
     put('holbertonwebapp.tar.gz', '/tmp/')
-    run("mkdir -p " + deploy_dir)
-    run("tar -xf /tmp/holbertonwebapp.tar.gz -C " + deploy_dir)
+    with cd('/tmp/'):
+        run("mkdir holbertonwebapp")
+        run("tar -xf holbertonwebapp.tar.gz -C holbertonwebapp/ > /dev/null")
 
-'''
+
 def clean():
+    """ Clean the tar file from the local directory """
     local("rm -f holbertonwebapp.tar.gz")
-'''

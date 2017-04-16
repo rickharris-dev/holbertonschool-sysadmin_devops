@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# Install and configure nginx to listen on port 80
+#
+
+config="\
+defaults
+	timeout client 10s
+	timeout connect 10s
+	timeout server 10s
+
+backend web-backend
+	mode http	
+	balance roundrobin
+	server 38-web-01 158.69.91.92:80 check
+	server 38-web-02 54.147.200.240:80 check
+
+frontend http
+	bind *:80
+	mode http
+
+	default_backend web-backend
+"
+
+function bye() {
+	echo "$2"
+	exit "$1"
+}
+
+
+apt-get -t trusty-backports install haproxy
+service haproxy stop > /dev/null 2>&1
+rm -f /etc/haproxy/haproxy.cfg > /dev/null 2>&1
+echo "$config" > /etc/haproxy/haproxy.cfg
+service haproxy start
+bye 0 'haproxy installed and configured'
