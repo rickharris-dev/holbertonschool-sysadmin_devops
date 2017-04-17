@@ -33,3 +33,6 @@ Similar to task 4, but responds to various signals
 ##10. Manage my process
 Daemon that outputs 'I am alive' to tmp file
 
+##11. Zombie
+A C program that creates 5 zombie processes
+
